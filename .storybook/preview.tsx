@@ -1,6 +1,6 @@
 import type { Preview, Decorator } from '@storybook/react-vite';
-import { Theme } from '@twilio-paste/theme';
-import { Box } from '@twilio-paste/box';
+import { Theme } from '@twilio-paste/core/theme';
+import { Box } from '@twilio-paste/core/box';
 
 const withPasteTheme: Decorator = (Story, context) => {
   const theme = (context.globals?.pasteTheme as string) ?? 'default';

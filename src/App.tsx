@@ -1,5 +1,5 @@
-import { Theme } from "@twilio-paste/theme";
-import { Box } from "@twilio-paste/box";
+import { Theme } from "@twilio-paste/core/theme";
+import { Box } from "@twilio-paste/core/box";
 import { InputField } from "./components/InputField";
 import { TextareaField } from "./components/TextAreaField";
 
