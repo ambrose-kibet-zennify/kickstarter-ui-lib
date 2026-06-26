@@ -1,20 +1,18 @@
 import React from "react";
-import { Input } from "@twilio-paste/input";
-import type { InputBoxTypes } from "@twilio-paste/input-box";
-import { Label } from "@twilio-paste/label";
-import { HelpText } from "@twilio-paste/help-text";
-import { Box } from "@twilio-paste/box";
+import { Input } from "@twilio-paste/core/input";
+import type { InputBoxTypes } from "@twilio-paste/core/input-box";
+import { Label } from "@twilio-paste/core/label";
+import { HelpText } from "@twilio-paste/core/help-text";
+import { Box } from "@twilio-paste/core/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 
-export interface InputFieldProps
-  extends Omit<
-    HTMLPasteProps<"input">,
-    "type" | "height" | "width" | "size" | "value" | "defaultValue"
-  > {
-  id: string;
+export interface InputFieldProps extends Omit<
+  HTMLPasteProps<"input">,
+  "type" | "height" | "width" | "size" | "value" | "defaultValue"
+> {
+  id?: string;
   label: string;
   type?: InputBoxTypes;
-  /** Accepts string or number; internally converted to string for Paste's Input */
   value?: string | number;
   defaultValue?: string | number;
   helpText?: string;
@@ -47,7 +45,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
       variant,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const descriptionId = helpText || errorText ? `${id}-help` : undefined;
 
@@ -67,7 +65,9 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
           id={id}
           type={type}
           value={value !== undefined ? String(value) : undefined}
-          defaultValue={defaultValue !== undefined ? String(defaultValue) : undefined}
+          defaultValue={
+            defaultValue !== undefined ? String(defaultValue) : undefined
+          }
           hasError={!!errorText}
           aria-describedby={descriptionId}
           aria-invalid={!!errorText}
@@ -80,13 +80,16 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
           {...rest}
         />
         {(helpText || errorText) && (
-          <HelpText id={descriptionId} variant={errorText ? "error" : "default"}>
+          <HelpText
+            id={descriptionId}
+            variant={errorText ? "error" : "default"}
+          >
             {errorText ?? helpText}
           </HelpText>
         )}
       </Box>
     );
-  }
+  },
 );
 
 InputField.displayName = "InputField";
