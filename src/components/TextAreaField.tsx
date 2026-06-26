@@ -1,8 +1,8 @@
 import React from "react";
-import { TextArea } from "@twilio-paste/textarea";
-import { Label } from "@twilio-paste/label";
-import { HelpText } from "@twilio-paste/help-text";
-import { Box } from "@twilio-paste/box";
+import { TextArea } from "@twilio-paste/core/textarea";
+import { Label } from "@twilio-paste/core/label";
+import { HelpText } from "@twilio-paste/core/help-text";
+import { Box } from "@twilio-paste/core/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 
 export interface TextareaFieldProps extends Omit<
