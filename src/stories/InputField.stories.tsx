@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn, userEvent, within, expect } from "storybook/test";
-import { Text } from "@twilio-paste/text";
+import { Text } from "@twilio-paste/core/text";
 import { InputField } from "../components/InputField";
-import type { InputBoxTypes } from "@twilio-paste/input-box";
+import type { InputBoxTypes } from "@twilio-paste/core/input-box";
 
 const meta: Meta<typeof InputField> = {
   title: "Components/InputField",
@@ -151,4 +151,87 @@ export const TypeInteraction: Story = {
     await userEvent.type(input, "Hello Storybook");
     await expect(input).toHaveValue("Hello Storybook");
   },
+};
+
+export const HiddenInput: Story = {
+  name: "Type: hidden",
+  render: (args) => (
+    <>
+      <InputField {...args} />
+      <Text as="p" color="colorTextWeak" fontSize="fontSize20" marginTop="space20">
+        ↑ No visible output — input is hidden in the DOM (value: &quot;{String(args.value)}&quot;)
+      </Text>
+    </>
+  ),
+  args: {
+    id: "hidden-token",
+    label: "CSRF Token",
+    type: "hidden" as InputBoxTypes,
+    value: "acc-00123",
+  },
+};
+
+export const Placeholder: Story = {
+  args: {
+    id: "placeholder-input",
+    label: "Username",
+    placeholder: "e.g. jane.doe",
+  },
+};
+
+export const PlaceholderInverse: Story = {
+  name: "Placeholder (inverse)",
+  args: {
+    id: "placeholder-inverse-input",
+    label: "Username",
+    placeholder: "e.g. jane.doe",
+    variant: "inverse",
+  },
+  parameters: {
+    pasteTheme: "default",
+  },
+  decorators: [
+    (Story) => (
+      <div
+        style={{ backgroundColor: "#1a1a2e", padding: "2rem", borderRadius: 8 }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const NumberError: Story = {
+  name: "Type: number (error)",
+  args: {
+    id: "age-error-field",
+    label: "Age",
+    type: "number" as InputBoxTypes,
+    placeholder: "0",
+    errorText: "Must be a positive number.",
+  },
+};
+
+export const NumberErrorInverse: Story = {
+  name: "Type: number (error, inverse)",
+  args: {
+    id: "age-error-inverse-field",
+    label: "Age",
+    type: "number" as InputBoxTypes,
+    placeholder: "0",
+    errorText: "Must be a positive number.",
+    variant: "inverse",
+  },
+  parameters: {
+    pasteTheme: "default",
+  },
+  decorators: [
+    (Story) => (
+      <div
+        style={{ backgroundColor: "#1a1a2e", padding: "2rem", borderRadius: 8 }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
 };
