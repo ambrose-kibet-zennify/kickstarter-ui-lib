@@ -1,7 +1,7 @@
 import { Theme } from "@twilio-paste/core/theme";
 import { Box } from "@twilio-paste/core/box";
-import { InputField } from "./components/InputField";
-import { TextareaField } from "./components/TextAreaField";
+import { InputField } from "./components/InputField/InputField";
+import { TextareaField } from "./components/TextAreaField/TextAreaField";
 
 function App() {
   return (

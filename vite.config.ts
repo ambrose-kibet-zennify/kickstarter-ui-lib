@@ -32,6 +32,14 @@ export default defineConfig({
           }]
         }
       }
+    }, {
+      test: {
+        name: 'unit',
+        environment: 'happy-dom',
+        globals: true,
+        setupFiles: ['./src/test-setup.ts'],
+        include: ['src/**/*.spec.tsx', 'src/**/*.spec.ts'],
+      }
     }]
   }
 });
