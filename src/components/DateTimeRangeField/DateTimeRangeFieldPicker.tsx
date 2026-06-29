@@ -1,7 +1,7 @@
 import React from "react";
 import { Stack } from "@twilio-paste/core/stack";
-import { DatePickerField } from "./DatePickerField";
-import { TimePickerField } from "./TimePickerField";
+import { DateFieldPicker } from "../DateFieldPicker/DateFieldPicker";
+import { TimeFieldPicker } from "../TimeFieldPicker/TimeFieldPicker";
 
 export interface DateTimeRangePickerFieldProps {
   startDateId: string;
@@ -60,7 +60,7 @@ export const DateTimeRangePickerField = ({
 }: DateTimeRangePickerFieldProps) => (
   <Stack orientation="vertical" spacing="space70">
     <Stack orientation="horizontal" spacing="space70">
-      <DatePickerField
+      <DateFieldPicker
         id={startDateId}
         label={startDateLabel}
         value={startDateValue}
@@ -71,7 +71,7 @@ export const DateTimeRangePickerField = ({
         disabled={disabled}
         required={required}
       />
-      <TimePickerField
+      <TimeFieldPicker
         id={startTimeId}
         label={startTimeLabel}
         value={startTimeValue}
@@ -82,7 +82,7 @@ export const DateTimeRangePickerField = ({
       />
     </Stack>
     <Stack orientation="horizontal" spacing="space70">
-      <DatePickerField
+      <DateFieldPicker
         id={endDateId}
         label={endDateLabel}
         value={endDateValue}
@@ -93,7 +93,7 @@ export const DateTimeRangePickerField = ({
         disabled={disabled}
         required={required}
       />
-      <TimePickerField
+      <TimeFieldPicker
         id={endTimeId}
         label={endTimeLabel}
         value={endTimeValue}

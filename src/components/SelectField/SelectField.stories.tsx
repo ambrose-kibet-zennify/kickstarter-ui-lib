@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn, userEvent, within, expect } from "storybook/test";
 import { Text } from "@twilio-paste/core/text";
-import { SelectField } from "../components/SelectField";
-import type { SelectOption, SelectOptionGroup } from "../components/SelectField";
+import { SelectField } from "./SelectField";
+import type { SelectOption, SelectOptionGroup } from "./SelectField";
 
 const DEFAULT_OPTIONS: Array<SelectOption | SelectOptionGroup> = [
   { value: "", label: "-- Select --" },

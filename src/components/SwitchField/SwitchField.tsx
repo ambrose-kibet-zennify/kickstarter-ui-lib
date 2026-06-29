@@ -7,7 +7,7 @@ export interface SwitchFieldProps extends Omit<
   HTMLPasteProps<"input">,
   "children"
 > {
-  id?: string;
+  id: string;
   label: NonNullable<ReactNode>;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   helpText?: string;

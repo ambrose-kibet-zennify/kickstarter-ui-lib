@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn, userEvent, within, expect } from "storybook/test";
 import { Text } from "@twilio-paste/core/text";
-import { InputField } from "../components/InputField";
+import { InputField } from "./InputField";
 import type { InputBoxTypes } from "@twilio-paste/core/input-box";
 
 const meta: Meta<typeof InputField> = {
@@ -158,8 +158,14 @@ export const HiddenInput: Story = {
   render: (args) => (
     <>
       <InputField {...args} />
-      <Text as="p" color="colorTextWeak" fontSize="fontSize20" marginTop="space20">
-        ↑ No visible output — input is hidden in the DOM (value: &quot;{String(args.value)}&quot;)
+      <Text
+        as="p"
+        color="colorTextWeak"
+        fontSize="fontSize20"
+        marginTop="space20"
+      >
+        ↑ No visible output — input is hidden in the DOM (value: &quot;
+        {String(args.value)}&quot;)
       </Text>
     </>
   ),

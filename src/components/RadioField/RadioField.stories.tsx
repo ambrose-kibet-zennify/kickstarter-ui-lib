@@ -1,8 +1,8 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn, userEvent, within, expect } from "storybook/test";
-import { RadioField } from "../components/RadioField";
-import type { RadioOption } from "../components/RadioField";
+import { RadioField } from "./RadioField";
+import type { RadioOption } from "./RadioField";
 
 const ROLE_OPTIONS: RadioOption[] = [
   { value: "admin", label: "Admin" },
@@ -66,8 +66,16 @@ export const DisabledOption: Story = {
 export const WithOptionHelpText: Story = {
   args: {
     options: [
-      { value: "admin", label: "Admin", helpText: "Full access to all resources." },
-      { value: "editor", label: "Editor", helpText: "Can create and edit content." },
+      {
+        value: "admin",
+        label: "Admin",
+        helpText: "Full access to all resources.",
+      },
+      {
+        value: "editor",
+        label: "Editor",
+        helpText: "Can create and edit content.",
+      },
       { value: "viewer", label: "Viewer", helpText: "Read-only access." },
     ],
   },

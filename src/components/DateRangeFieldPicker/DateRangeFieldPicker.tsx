@@ -1,8 +1,8 @@
 import React from "react";
 import { Stack } from "@twilio-paste/core/stack";
-import { DatePickerField } from "./DatePickerField";
+import { DateFieldPicker } from "../DateFieldPicker/DateFieldPicker";
 
-export interface DateRangePickerFieldProps {
+export interface DateRangeFieldPickerProps {
   orientation?: "horizontal" | "vertical";
   startId: string;
   endId: string;
@@ -21,7 +21,7 @@ export interface DateRangePickerFieldProps {
   disabled?: boolean;
 }
 
-export const DateRangePickerField = ({
+export const DateRangeFieldPicker = ({
   orientation = "vertical",
   startId,
   endId,
@@ -38,9 +38,9 @@ export const DateRangePickerField = ({
   max,
   required,
   disabled,
-}: DateRangePickerFieldProps) => (
+}: DateRangeFieldPickerProps) => (
   <Stack orientation={orientation} spacing="space70">
-    <DatePickerField
+    <DateFieldPicker
       id={startId}
       label={startLabel}
       value={startValue}
@@ -51,7 +51,7 @@ export const DateRangePickerField = ({
       disabled={disabled}
       required={required}
     />
-    <DatePickerField
+    <DateFieldPicker
       id={endId}
       label={endLabel}
       value={endValue}
@@ -66,4 +66,4 @@ export const DateRangePickerField = ({
   </Stack>
 );
 
-DateRangePickerField.displayName = "DateRangePickerField";
+DateRangeFieldPicker.displayName = "DateRangeFieldPicker";

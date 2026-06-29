@@ -1,14 +1,16 @@
 import React from "react";
-import { TimePicker } from "@twilio-paste/core/time-picker";
-import type { TimePickerProps } from "@twilio-paste/core/time-picker";
+import { DatePicker } from "@twilio-paste/core/date-picker";
+import type { DatePickerProps } from "@twilio-paste/core/date-picker";
 import { Label } from "@twilio-paste/core/label";
 import { HelpText } from "@twilio-paste/core/help-text";
 import { Box } from "@twilio-paste/core/box";
 
-export { formatReturnTime } from "@twilio-paste/core/time-picker";
+export { formatReturnDate } from "@twilio-paste/core/date-picker";
 
-export interface TimePickerFieldProps
-  extends Omit<TimePickerProps, "hasError" | "element" | "id"> {
+export interface DateFieldPickerProps extends Omit<
+  DatePickerProps,
+  "hasError" | "element" | "id"
+> {
   id: string;
   label: string;
   helpText?: string;
@@ -16,12 +18,22 @@ export interface TimePickerFieldProps
   labelOptional?: boolean;
 }
 
-export const TimePickerField = React.forwardRef<
+export const DateFieldPicker = React.forwardRef<
   HTMLInputElement,
-  TimePickerFieldProps
+  DateFieldPickerProps
 >(
   (
-    { id, label, helpText, errorText, labelOptional, disabled, required, variant, ...rest },
+    {
+      id,
+      label,
+      helpText,
+      errorText,
+      labelOptional,
+      disabled,
+      required,
+      variant,
+      ...rest
+    },
     ref,
   ) => {
     const descriptionId = helpText || errorText ? `${id}-help` : undefined;
@@ -37,7 +49,7 @@ export const TimePickerField = React.forwardRef<
         >
           {label}
         </Label>
-        <TimePicker
+        <DatePicker
           ref={ref}
           id={id}
           hasError={!!errorText}
@@ -49,7 +61,10 @@ export const TimePickerField = React.forwardRef<
           {...rest}
         />
         {(helpText || errorText) && (
-          <HelpText id={descriptionId} variant={errorText ? "error" : "default"}>
+          <HelpText
+            id={descriptionId}
+            variant={errorText ? "error" : "default"}
+          >
             {errorText ?? helpText}
           </HelpText>
         )}
@@ -58,4 +73,4 @@ export const TimePickerField = React.forwardRef<
   },
 );
 
-TimePickerField.displayName = "TimePickerField";
+DateFieldPicker.displayName = "DateFieldPicker";

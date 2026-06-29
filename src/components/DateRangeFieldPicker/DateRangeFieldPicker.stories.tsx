@@ -1,11 +1,11 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { userEvent, within, expect } from "storybook/test";
-import { DateRangePickerField } from "../components/DateRangePickerField";
+import { DateRangeFieldPicker } from "./DateRangeFieldPicker";
 
-const meta: Meta<typeof DateRangePickerField> = {
-  title: "Components/DateRangePickerField",
-  component: DateRangePickerField,
+const meta: Meta<typeof DateRangeFieldPicker> = {
+  title: "Components/DateRangeFieldPicker",
+  component: DateRangeFieldPicker,
   tags: ["autodocs"],
   args: {
     startId: "range-start",
@@ -14,7 +14,7 @@ const meta: Meta<typeof DateRangePickerField> = {
 };
 export default meta;
 
-type Story = StoryObj<typeof DateRangePickerField>;
+type Story = StoryObj<typeof DateRangeFieldPicker>;
 
 export const Default: Story = {};
 
@@ -68,7 +68,7 @@ export const RangeSelection: Story = {
     const [startValue, setStartValue] = React.useState("");
     const [endValue, setEndValue] = React.useState("");
     return (
-      <DateRangePickerField
+      <DateRangeFieldPicker
         {...args}
         startValue={startValue}
         endValue={endValue}

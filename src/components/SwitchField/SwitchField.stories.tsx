@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn, userEvent, within, expect } from "storybook/test";
-import { SwitchField } from "../components/SwitchField";
+import { SwitchField } from "./SwitchField";
 
 const meta: Meta<typeof SwitchField> = {
   title: "Components/SwitchField",

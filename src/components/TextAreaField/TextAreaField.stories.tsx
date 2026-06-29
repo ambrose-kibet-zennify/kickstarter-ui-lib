@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn, userEvent, within, expect } from "storybook/test";
 import { Text } from "@twilio-paste/core/text";
-import { TextareaField } from "../components/TextAreaField";
+import { TextareaField } from "./TextAreaField";
 
 const meta: Meta<typeof TextareaField> = {
-  title: "Components/TextareaField",
+  title: "Components/TextAreaField",
   component: TextareaField,
   tags: ["autodocs"],
   args: {

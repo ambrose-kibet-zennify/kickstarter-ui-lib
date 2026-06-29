@@ -3,16 +3,16 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Box } from "@twilio-paste/core/box";
 import { Stack } from "@twilio-paste/core/stack";
 import { Button } from "@twilio-paste/core/button";
-import { InputField } from "../components/InputField";
-import { TextareaField } from "../components/TextAreaField";
-import { SelectField } from "../components/SelectField";
-import { RadioField } from "../components/RadioField";
-import { SwitchField } from "../components/SwitchField";
+import { InputField } from "../InputField/InputField";
+import { TextareaField } from "../TextAreaField/TextAreaField";
+import { SelectField } from "../SelectField/SelectField";
+import { RadioField } from "../RadioField/RadioField";
+import { SwitchField } from "../SwitchField/SwitchField";
 import type {
   SelectOption,
   SelectOptionGroup,
-} from "../components/SelectField";
-import type { RadioOption } from "../components/RadioField";
+} from "../SelectField/SelectField";
+import type { RadioOption } from "../RadioField/RadioField";
 
 // Grouped options — shows OptionGroup rendering
 const COUNTRY_OPTIONS: Array<SelectOption | SelectOptionGroup> = [
@@ -91,7 +91,7 @@ export const CreateAccount: Story = {
       <Box
         as="form"
         maxWidth="size60"
-        onSubmit={(e: React.FormEvent) => e.preventDefault()}
+        onSubmit={(e: React.SubmitEvent<HTMLFormElement>) => e.preventDefault()}
       >
         <Stack orientation="vertical" spacing="space70">
           {/* Normal required input */}

@@ -1,11 +1,11 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn, userEvent, within, expect } from "storybook/test";
-import { DatePickerField } from "../components/DatePickerField";
+import { DateFieldPicker } from "./DateFieldPicker";
 
-const meta: Meta<typeof DatePickerField> = {
-  title: "Components/DatePickerField",
-  component: DatePickerField,
+const meta: Meta<typeof DateFieldPicker> = {
+  title: "Components/DateFieldPicker",
+  component: DateFieldPicker,
   tags: ["autodocs"],
   args: {
     id: "date-field",
@@ -15,7 +15,7 @@ const meta: Meta<typeof DatePickerField> = {
 };
 export default meta;
 
-type Story = StoryObj<typeof DatePickerField>;
+type Story = StoryObj<typeof DateFieldPicker>;
 
 export const Default: Story = {};
 
@@ -82,7 +82,7 @@ export const PickDate: Story = {
   render: (args) => {
     const [value, setValue] = React.useState("");
     return (
-      <DatePickerField
+      <DateFieldPicker
         {...args}
         value={value}
         onChange={(e) => setValue(e.target.value)}
