@@ -1,11 +1,10 @@
 import { KeyboardKey, KeyboardKeyGroup } from "@twilio-paste/core/keyboard-key";
-import type { KeyboardKeyGroupProps } from "@twilio-paste/core/keyboard-key";
+import type { KeyboardKeysProps } from "./types";
 
-export { useKeyCombination, useKeyCombinations } from "@twilio-paste/core/keyboard-key";
-
-export interface KeyboardKeysProps extends Omit<KeyboardKeyGroupProps, "children"> {
-  keys: string[];
-}
+export {
+  useKeyCombination,
+  useKeyCombinations,
+} from "@twilio-paste/core/keyboard-key";
 
 export const KeyboardKeys = ({ keys, ...rest }: KeyboardKeysProps) => (
   <KeyboardKeyGroup {...rest}>
